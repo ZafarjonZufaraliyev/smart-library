@@ -24,7 +24,7 @@ public class MainController {
                     //
                 break;
                 case 4:
-                    //
+                    login();
                 break;
                 case 5:
                     //
@@ -50,5 +50,17 @@ public class MainController {
         System.out.print("Enter Action:");
         Scanner scanner=new Scanner(System.in);
         return scanner.nextInt();
+    }
+
+    public void login(){
+        Scanner scanner =new Scanner(System.in);
+        System.out.print("Enter login:");
+        String login=scanner.next();
+
+        System.out.print("Enter password:");
+        String password=scanner.next();
+
+        AuthServes authServes=new AuthServes();
+        authServes.login(login,password);
     }
 }
