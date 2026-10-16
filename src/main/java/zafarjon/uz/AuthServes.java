@@ -22,12 +22,12 @@ public class AuthServes {
             System.out.println("Not ACTIVE mazgi!");
             return;
         }
-
-        System.out.println("Welcome to library project bro !");
         if (profile.getRole().equals(ProfileRole.STUDENT)){
-            //student Controller
-        }else {
-            //staffController
+            StudentController studentController=new StudentController();
+            studentController.start();
+        }else if (profile.getRole().equals(ProfileRole.ADMIN)){
+            AdminController adminController=new AdminController();
+            adminController.start();
         }
     }
 }

@@ -27,4 +27,25 @@ public class initServise {
         }
 
     }
+
+
+    public void initStudent(){
+        String login="ali";
+        String input="12345";
+        ProfileRepository profileRepository=new ProfileRepository();
+        Profile profile= profileRepository.getLogin(login);
+        if (profile==null){
+            Profile student=new Profile();
+            student.setName("Ali");
+            student.setSurname("Valiyev");
+            student.setPhone("998901630021");
+            student.setPassword(MD5util.encode(input));
+            student.setRole(ProfileRole.STUDENT);
+            student.setStatus(ProfileStatus.ACTIVE);
+            student.setCreatedDate(LocalDateTime.now());
+            student.setLogin(login);
+            profileRepository.create(student);
+        }
+
+    }
 }

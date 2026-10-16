@@ -8,7 +8,7 @@ public class MainController {
         initServise initServise=new initServise();
         tableRepostory.createTable();
         initServise.initAdmin();
-
+        initServise.initStudent();
         boolean loop=true;
         while (loop){
             showMenu();
