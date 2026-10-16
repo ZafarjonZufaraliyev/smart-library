@@ -1,5 +1,6 @@
 package zafarjon.uz.controller;
 
+import zafarjon.uz.Contaner.CompanentContaner;
 import zafarjon.uz.servise.AuthServes;
 import zafarjon.uz.dto.Profile;
 import zafarjon.uz.repository.TableRepostory;
@@ -54,38 +55,34 @@ public class MainController {
     }
     public int getAction(){
         System.out.print("Enter Action:");
-        Scanner scanner=new Scanner(System.in);
-        return scanner.nextInt();
+        return CompanentContaner.scannerNumber.nextInt();
     }
 
     public void login(){
-        Scanner scanner =new Scanner(System.in);
         System.out.print("Enter login:");
-        String login=scanner.next();
+        String login=CompanentContaner.scannerText.next();;
 
         System.out.print("Enter password:");
-        String password=scanner.next();
+        String password=CompanentContaner.scannerText.next();;
 
-        AuthServes authServes=new AuthServes();
-        authServes.login(login,password);
+        CompanentContaner.authServes.login(login,password);
     }
 
     public void registration(){
-        Scanner scanner =new Scanner(System.in);
         System.out.print("Enter name:");
-        String name=scanner.next();
+        String name=CompanentContaner.scannerText.next();
 
         System.out.print("Enter surname:");
-        String surname=scanner.next();
+        String surname=CompanentContaner.scannerText.next();
 
         System.out.print("Enter phone:");
-        String phone=scanner.next();
+        String phone=CompanentContaner.scannerText.next();;
 
         System.out.print("Enter login:");
-        String login=scanner.next();
+        String login=CompanentContaner.scannerText.next();
 
         System.out.print("Enter password:");
-        String password=scanner.next();
+        String password=CompanentContaner.scannerText.next();
 
         Profile profile =new Profile();
         profile.setName(name.trim());
@@ -94,7 +91,6 @@ public class MainController {
         profile.setLogin(login.trim());
         profile.setPassword(password.trim());
 
-        AuthServes authServes=new AuthServes();
-        authServes.registration(profile);
+        CompanentContaner.authServes.registration(profile);
     }
 }

@@ -1,5 +1,7 @@
 package zafarjon.uz.controller;
 
+import zafarjon.uz.Contaner.CompanentContaner;
+
 import java.util.Scanner;
 
 public class StudentController {
@@ -37,8 +39,7 @@ public class StudentController {
     }
     public int getAction(){
         System.out.print("Enter Action:");
-        Scanner scanner=new Scanner(System.in);
-        return scanner.nextInt();
+        return CompanentContaner.scannerNumber.nextInt();
     }
     public void showMenu(){
         System.out.println("******Student Menu******");

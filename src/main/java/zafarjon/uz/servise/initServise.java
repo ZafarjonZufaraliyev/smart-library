@@ -1,5 +1,6 @@
 package zafarjon.uz.servise;
 
+import zafarjon.uz.Contaner.CompanentContaner;
 import zafarjon.uz.Enums.ProfileRole;
 import zafarjon.uz.Enums.ProfileStatus;
 import zafarjon.uz.dto.Profile;
@@ -13,8 +14,7 @@ public class initServise {
     public void initAdmin(){
         String login="zafarjon";
         String input="12345";
-        ProfileRepository profileRepository=new ProfileRepository();
-        Profile profile= profileRepository.getLogin(login);
+        Profile profile= CompanentContaner.profileRepository.getLogin(login);
         if (profile==null){
             Profile admin=new Profile();
             admin.setName("Zafarjon");
@@ -25,7 +25,7 @@ public class initServise {
             admin.setStatus(ProfileStatus.ACTIVE);
             admin.setCreatedDate(LocalDateTime.now());
             admin.setLogin(login);
-            profileRepository.create(admin);
+            CompanentContaner.profileRepository.create(admin);
         }
 
     }
@@ -34,8 +34,7 @@ public class initServise {
     public void initStudent(){
         String login="ali";
         String input="12345";
-        ProfileRepository profileRepository=new ProfileRepository();
-        Profile profile= profileRepository.getLogin(login);
+        Profile profile= CompanentContaner.profileRepository.getLogin(login);
         if (profile==null){
             Profile student=new Profile();
             student.setName("Ali");
@@ -46,7 +45,7 @@ public class initServise {
             student.setStatus(ProfileStatus.ACTIVE);
             student.setCreatedDate(LocalDateTime.now());
             student.setLogin(login);
-            profileRepository.create(student);
+            CompanentContaner.profileRepository.create(student);
         }
 
     }
@@ -54,8 +53,7 @@ public class initServise {
     public void initStaff(){
         String login="vali";
         String input="12345";
-        ProfileRepository profileRepository=new ProfileRepository();
-        Profile profile= profileRepository.getLogin(login);
+        Profile profile= CompanentContaner.profileRepository.getLogin(login);
         if (profile==null){
             Profile staff=new Profile();
             staff.setName("Vali");
@@ -66,7 +64,7 @@ public class initServise {
             staff.setStatus(ProfileStatus.ACTIVE);
             staff.setCreatedDate(LocalDateTime.now());
             staff.setLogin(login);
-            profileRepository.create(staff);
+            CompanentContaner.profileRepository.create(staff);
         }
 
     }

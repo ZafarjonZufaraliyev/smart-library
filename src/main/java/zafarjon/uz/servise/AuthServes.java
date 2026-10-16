@@ -1,5 +1,6 @@
 package zafarjon.uz.servise;
 
+import zafarjon.uz.Contaner.CompanentContaner;
 import zafarjon.uz.Enums.ProfileRole;
 import zafarjon.uz.Enums.ProfileStatus;
 import zafarjon.uz.dto.Profile;
@@ -14,9 +15,7 @@ import java.time.LocalDateTime;
 public class AuthServes {
 
     public void login(String login,String password){
-        ProfileRepository profileRepository=new ProfileRepository();
-        Profile profile= profileRepository.getLogin(login);
-
+        Profile profile= CompanentContaner.profileRepository.getLogin(login);
         if(profile==null){
             System.out.println("Login or password wrong!");
             return;
@@ -47,10 +46,8 @@ public class AuthServes {
         if (!isValid(profile)){
             return;
         }
-
         //chek login
-        ProfileRepository profileRepository=new ProfileRepository();
-        Profile existProfile= profileRepository.getLogin(profile.getLogin());
+        Profile existProfile= CompanentContaner.profileRepository.getLogin(profile.getLogin());
         if(existProfile!=null){
             System.out.println("Login exists. Please choose other login.");
             return;
@@ -61,7 +58,7 @@ public class AuthServes {
         profile.setStatus(ProfileStatus.ACTIVE);
         profile.setPassword(MD5util.encode(profile.getPassword()));
 
-        int effectedRow= profileRepository.create(profile);
+        int effectedRow= CompanentContaner.profileRepository.create(profile);
         if (effectedRow==1){
             System.out.println("Registration completed!");
         }
