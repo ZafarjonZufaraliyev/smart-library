@@ -1,4 +1,9 @@
-package zafarjon.uz;
+package zafarjon.uz.controller;
+
+import zafarjon.uz.servise.AuthServes;
+import zafarjon.uz.dto.Profile;
+import zafarjon.uz.repository.TableRepostory;
+import zafarjon.uz.servise.initServise;
 
 import java.util.Scanner;
 
@@ -9,6 +14,7 @@ public class MainController {
         tableRepostory.createTable();
         initServise.initAdmin();
         initServise.initStudent();
+        initServise.initStaff();
         boolean loop=true;
         while (loop){
             showMenu();
@@ -27,7 +33,7 @@ public class MainController {
                     login();
                 break;
                 case 5:
-                    //
+                    registration();
                 break;
                 case 0:
                     loop=false;
@@ -62,5 +68,33 @@ public class MainController {
 
         AuthServes authServes=new AuthServes();
         authServes.login(login,password);
+    }
+
+    public void registration(){
+        Scanner scanner =new Scanner(System.in);
+        System.out.print("Enter name:");
+        String name=scanner.next();
+
+        System.out.print("Enter surname:");
+        String surname=scanner.next();
+
+        System.out.print("Enter phone:");
+        String phone=scanner.next();
+
+        System.out.print("Enter login:");
+        String login=scanner.next();
+
+        System.out.print("Enter password:");
+        String password=scanner.next();
+
+        Profile profile =new Profile();
+        profile.setName(name.trim());
+        profile.setSurname(surname.trim());
+        profile.setPhone(phone.trim());
+        profile.setLogin(login.trim());
+        profile.setPassword(password.trim());
+
+        AuthServes authServes=new AuthServes();
+        authServes.registration(profile);
     }
 }

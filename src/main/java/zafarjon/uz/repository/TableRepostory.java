@@ -1,4 +1,4 @@
-package zafarjon.uz;
+package zafarjon.uz.repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class TableRepostory {
                ");";
        {
            try {
-               Connection connection=DataBaseConnaction.connectionDataBase();
+               Connection connection= ConnactionRepository.connectionDataBase();
                Statement statement = connection.createStatement();
                statement.executeUpdate(sql);
                connection.close();

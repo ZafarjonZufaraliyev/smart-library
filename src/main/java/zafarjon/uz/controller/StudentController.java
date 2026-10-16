@@ -1,8 +1,8 @@
-package zafarjon.uz;
+package zafarjon.uz.controller;
 
 import java.util.Scanner;
 
-public class StaffController {
+public class StudentController {
     public void start(){
         boolean loop=true;
         while (loop){
@@ -13,6 +13,18 @@ public class StaffController {
                     //
                     break;
                 case 2:
+                    //
+                    break;
+                case 3:
+                    //
+                    break;
+                case 4:
+                    //
+                    break;
+                case 5:
+                    //
+                    break;
+                case 6:
                     //
                     break;
                 case 0:
@@ -29,9 +41,13 @@ public class StaffController {
         return scanner.nextInt();
     }
     public void showMenu(){
-        System.out.println("******Admin Menu******");
-        System.out.println("1- Book");
-        System.out.println("2- Student");
+        System.out.println("******Student Menu******");
+        System.out.println("1- BookList");
+        System.out.println("2- Search");
+        System.out.println("3- Take book");
+        System.out.println("4- Return book");
+        System.out.println("5- Books on hand");
+        System.out.println("5- Take book history");
         System.out.println("0- Exit");
     }
 }

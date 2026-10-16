@@ -1,7 +1,8 @@
-package zafarjon.uz;
+package zafarjon.uz.repository;
 
 import zafarjon.uz.Enums.ProfileRole;
 import zafarjon.uz.Enums.ProfileStatus;
+import zafarjon.uz.dto.Profile;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +11,8 @@ import java.sql.SQLException;
 
 public class ProfileRepository {
     public Profile getLogin(String login){
-
         try {
-            Connection connection=DataBaseConnaction.connectionDataBase();
+            Connection connection= ConnactionRepository.connectionDataBase();
             PreparedStatement preparedStatement=connection.prepareStatement("select id, name, surname,login, password,phone,status,role,createdDate from profile where login=?");
             preparedStatement.setString(1,login);
 
@@ -39,7 +39,7 @@ public class ProfileRepository {
     }
 
     public int create(Profile profile){
-        Connection connection=DataBaseConnaction.connectionDataBase();
+        Connection connection= ConnactionRepository.connectionDataBase();
         try {
             String sql="insert into profile(name,surname,login,password,phone,status,role) values (?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement=connection.prepareStatement(sql);

@@ -1,4 +1,4 @@
-package zafarjon.uz;
+package zafarjon.uz.controller;
 
 import java.util.Scanner;
 

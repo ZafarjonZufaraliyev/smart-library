@@ -1,10 +1,10 @@
-package zafarjon.uz;
+package zafarjon.uz.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DataBaseConnaction {
+public class ConnactionRepository {
    public static Connection connectionDataBase(){
        Connection connection;
        {

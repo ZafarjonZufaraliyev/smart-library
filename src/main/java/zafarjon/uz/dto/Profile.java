@@ -1,4 +1,4 @@
-package zafarjon.uz;
+package zafarjon.uz.dto;
 
 import zafarjon.uz.Enums.ProfileRole;
 import zafarjon.uz.Enums.ProfileStatus;
