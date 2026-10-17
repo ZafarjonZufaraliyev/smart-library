@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class TableRepostory {
    public void createTable(){
-       String sql="create  table if not exists profile("+
+       String profile="create  table if not exists profile("+
                " id serial primary key,"+
                "name varchar(25) not null,"+
                "surname varchar(25) not null,"+
@@ -17,16 +17,29 @@ public class TableRepostory {
                "role varchar(25) not null,"+
                "createdDate timestamp default now()"+
                ");";
-       {
+       executeSQL(profile);
+       String category="create  table if not exists category("+
+               " id serial primary key,"+
+               "name varchar(25) not null unique,"+
+               "createdDate timestamp default now(),"+
+               "visible boolean default true"+
+               ");";
+        executeSQL(category);
+   }
+
+   public  void executeSQL(String sql){
+       Connection connection= ConnactionRepository.connectionDataBase();
+       try {
+           Statement statement = connection.createStatement();
+           statement.executeUpdate(sql);
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }finally {
            try {
-               Connection connection= ConnactionRepository.connectionDataBase();
-               Statement statement = connection.createStatement();
-               statement.executeUpdate(sql);
                connection.close();
            } catch (SQLException e) {
-               throw new RuntimeException(e);
+               e.printStackTrace();
            }
        }
    }
-
 }

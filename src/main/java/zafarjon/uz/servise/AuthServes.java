@@ -30,14 +30,11 @@ public class AuthServes {
             return;
         }
         if (profile.getRole().equals(ProfileRole.STUDENT)){
-            StudentController studentController=new StudentController();
-            studentController.start();
+           CompanentContaner.studentController.start();
         }else if (profile.getRole().equals(ProfileRole.ADMIN)){
-            AdminController adminController=new AdminController();
-            adminController.start();
+           CompanentContaner.adminController.start();
         }else if(profile.getRole().equals(ProfileRole.STAFF)){
-            StaffController staffController=new StaffController();
-            staffController.start();
+            CompanentContaner.staffController.start();
         }
     }
 

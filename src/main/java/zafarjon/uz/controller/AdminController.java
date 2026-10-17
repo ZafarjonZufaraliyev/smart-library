@@ -15,7 +15,7 @@ public class AdminController {
                     //
                     break;
                 case 2:
-                    //
+                    CompanentContaner.catigoriyController.start();
                     break;
                 case 3:
                     //
