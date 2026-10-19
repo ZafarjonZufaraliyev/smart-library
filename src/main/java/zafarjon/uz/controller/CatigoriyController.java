@@ -11,7 +11,7 @@ public class CatigoriyController {
             int action=getAction();
             switch (action){
                 case 1:
-                    //
+                    list();
                     break;
                 case 2:
                     //
@@ -45,5 +45,9 @@ public class CatigoriyController {
         Category category=new Category();
         category.setName(name);
         CompanentContaner.categoryServes.created(category);
+    }
+
+    public void list(){
+        CompanentContaner.categoryServes.list();
     }
 }

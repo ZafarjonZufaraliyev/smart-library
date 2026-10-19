@@ -3,6 +3,8 @@ package zafarjon.uz.repository;
 import zafarjon.uz.dto.Category;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class CategoryRepository {
 
@@ -56,5 +58,25 @@ public class CategoryRepository {
             }
         }
         return  0;
+    }
+
+    public List<Category> getList(){
+        Connection connection=ConnactionRepository.connectionDataBase();
+        List<Category> list=new LinkedList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet=statement.executeQuery("select * from category where visible=true");
+            while (resultSet.next()){
+                Category category=new Category();
+                category.setId(resultSet.getInt("id"));
+                category.setName(resultSet.getString("name"));
+                category.setVisible(resultSet.getBoolean("visible"));
+                category.setCreatedDate(resultSet.getTimestamp("createdDate").toLocalDateTime());
+                list.add(category);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
     }
 }

@@ -4,6 +4,7 @@ import zafarjon.uz.Contaner.CompanentContaner;
 import zafarjon.uz.dto.Category;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class CategoryServes {
 
@@ -30,5 +31,11 @@ public class CategoryServes {
             return false;
         }
         return true;
+    }
+    public void list(){
+        List<Category> categoryList= CompanentContaner.categoryRepository.getList();
+        for (Category category:categoryList){
+            System.out.println(category.getId()+" - "+category.getName()+" ("+category.getCreatedDate()+")");
+        }
     }
 }
