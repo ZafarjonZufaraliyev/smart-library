@@ -14,7 +14,7 @@ public class CatigoriyController {
                     list();
                     break;
                 case 2:
-                    //
+                    delete();
                     break;
                 case 3:
                     addCategory();
@@ -49,5 +49,11 @@ public class CatigoriyController {
 
     public void list(){
         CompanentContaner.categoryServes.list();
+    }
+    public void delete(){
+        System.out.print("Enter Id: ");
+        Integer id=CompanentContaner.scannerNumber.nextInt();
+
+        CompanentContaner.categoryServes.deletCategory(id);
     }
 }

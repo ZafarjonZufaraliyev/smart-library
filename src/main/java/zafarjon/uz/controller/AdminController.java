@@ -12,7 +12,7 @@ public class AdminController {
             int action=getAction();
             switch (action){
                 case 1:
-                    //
+                    CompanentContaner.bookController.start();
                     break;
                 case 2:
                     CompanentContaner.catigoriyController.start();

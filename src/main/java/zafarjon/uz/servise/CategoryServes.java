@@ -38,4 +38,12 @@ public class CategoryServes {
             System.out.println(category.getId()+" - "+category.getName()+" ("+category.getCreatedDate()+")");
         }
     }
+    public void deletCategory(Integer id){
+        int effectedRow= CompanentContaner.categoryRepository.deleteById(id);
+        if (effectedRow!=0){
+            System.out.println("Category is delete");
+        }else {
+            System.out.println("Category is not deleted");
+        }
+    }
 }

@@ -1,0 +1,79 @@
+package zafarjon.uz.dto;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class Book {
+    private Integer id;
+    private String title;
+    private String author;
+    private Integer category_id;
+    private LocalDate publishDate;
+    private Integer availableDay;
+    private Boolean visible;
+    private LocalDateTime createdDate;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Integer getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Integer category_id) {
+        this.category_id = category_id;
+    }
+
+    public LocalDate getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Integer getAvailableDay() {
+        return availableDay;
+    }
+
+    public void setAvailableDay(Integer availableDay) {
+        this.availableDay = availableDay;
+    }
+
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+}

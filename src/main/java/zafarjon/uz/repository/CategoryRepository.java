@@ -36,6 +36,34 @@ public class CategoryRepository {
         return null;
     }
 
+    public Category getById(Integer id) {
+        Connection connection = ConnactionRepository.connectionDataBase();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from category where id=?");
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Category category = new Category();
+                category.setId(resultSet.getInt("id"));
+                category.setName(resultSet.getString("name"));
+                category.setVisible(resultSet.getBoolean("visible"));
+                category.setCreatedDate(resultSet.getTimestamp("createdDate").toLocalDateTime());
+
+                return category;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public int save(Category category){
         Connection connection= ConnactionRepository.connectionDataBase();
         try {
@@ -49,7 +77,6 @@ public class CategoryRepository {
             return preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-
         }finally {
             try {
                 connection.close();
@@ -75,8 +102,40 @@ public class CategoryRepository {
                 list.add(category);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
+
+    public int deleteById(Integer id){
+        Connection connection=ConnactionRepository.connectionDataBase();
+        try {
+            String sql = "UPDATE category SET visible = false WHERE id = ?";
+
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, id);
+
+            return preparedStatement.executeUpdate();
+
+        }  catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+
 }
