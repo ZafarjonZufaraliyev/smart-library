@@ -7,6 +7,7 @@ import zafarjon.uz.dto.Category;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class BookServes {
     public void add(Book book){
@@ -28,8 +29,6 @@ public class BookServes {
         System.out.println("Book is not created!");
     }
     }
-
-
     public boolean isValid(Book book){
         if (book.getTitle()==null || book.getTitle().isBlank() || book.getTitle().length()<3){
             return false;
@@ -41,5 +40,11 @@ public class BookServes {
             return false;
         }
         return true;
+    }
+    public void list(){
+        List<Book> bookList= CompanentContaner.bookRepository.getBooks();
+        for (Book book:bookList){
+            System.out.println(book.getId()+" - "+book.getTitle()+", "+book.getAuthor()+", ("+book.getCategory().getName()+")");
+        }
     }
 }

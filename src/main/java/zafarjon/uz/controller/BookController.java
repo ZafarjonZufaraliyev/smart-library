@@ -13,7 +13,7 @@ public class BookController {
             int action=getAction();
             switch (action){
                 case 1:
-                    //
+                    list();
                     break;
                 case 2:
                     //
@@ -80,5 +80,8 @@ public class BookController {
         book.setPublishDate(LocalDate.parse(publish_date));
 
         CompanentContaner.bookServes.add(book);
+    }
+    public void list(){
+        CompanentContaner.bookServes.list();
     }
 }

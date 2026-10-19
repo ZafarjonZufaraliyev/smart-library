@@ -4,6 +4,7 @@ import zafarjon.uz.Contaner.CompanentContaner;
 import zafarjon.uz.dto.Category;
 
 public class CatigoriyController {
+
     public void start(){
         boolean loop=true;
         while (loop){
@@ -46,7 +47,6 @@ public class CatigoriyController {
         category.setName(name);
         CompanentContaner.categoryServes.created(category);
     }
-
     public void list(){
         CompanentContaner.categoryServes.list();
     }

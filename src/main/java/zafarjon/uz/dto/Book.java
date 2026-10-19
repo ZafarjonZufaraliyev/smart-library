@@ -13,6 +13,7 @@ public class Book {
     private Boolean visible;
     private LocalDateTime createdDate;
 
+    public Category category;
     public Integer getId() {
         return id;
     }
@@ -75,5 +76,13 @@ public class Book {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
