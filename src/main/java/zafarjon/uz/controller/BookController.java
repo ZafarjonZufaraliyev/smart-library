@@ -16,7 +16,7 @@ public class BookController {
                     list();
                     break;
                 case 2:
-                    //
+                    Search();
                     break;
                 case 3:
                     add();
