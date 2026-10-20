@@ -84,4 +84,9 @@ public class BookController {
     public void list(){
         CompanentContaner.bookServes.list();
     }
+    public void Search(){
+        System.out.print("Enter query:");
+        String query=CompanentContaner.scannerText.next();
+        CompanentContaner.bookServes.search(query);
+    }
 }

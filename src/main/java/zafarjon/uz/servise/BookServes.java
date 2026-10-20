@@ -47,4 +47,7 @@ public class BookServes {
             System.out.println(book.getId()+" - "+book.getTitle()+", "+book.getAuthor()+", ("+book.getCategory().getName()+")");
         }
     }
+    public void search(String query){
+
+    }
 }
