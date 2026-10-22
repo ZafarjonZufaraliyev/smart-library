@@ -48,6 +48,17 @@ public class BookServes {
         }
     }
     public void search(String query){
-
+        List<Book> queryList= CompanentContaner.bookRepository.search(query);
+        for (Book book:queryList){
+            System.out.println(book.getId()+" - "+book.getTitle()+", "+book.getAuthor()+", ("+book.getCategory().getName()+")");
+        }
+    }
+    public void remove(Integer removeId){
+        int effectedRow= CompanentContaner.bookRepository.remove(removeId);
+        if (effectedRow==1){
+            System.out.println("Book is remove");
+        }else{
+            System.out.println("Book is nor remove");
+        }
     }
 }

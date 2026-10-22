@@ -22,7 +22,7 @@ public class BookController {
                     add();
                     break;
                 case 4:
-                    //
+                    remove();
                     break;
                 case 5:
                     //
@@ -67,7 +67,7 @@ public class BookController {
         Integer category_id=CompanentContaner.scannerNumber.nextInt();
 
         System.out.print("Enter available day:");
-        Integer available_day=CompanentContaner.scannerNumber.nextInt();
+        String available_day=CompanentContaner.scannerText.next();
 
         System.out.print("Enter book publishDate (yyyy-MM-dd):");
         String publish_date =CompanentContaner.scannerText.next();
@@ -76,7 +76,7 @@ public class BookController {
         book.setTitle(title);
         book.setAuthor(author);
         book.setCategory_id(category_id);
-        book.setAvailableDay(available_day);
+        book.setAvailableDay(Integer.valueOf(available_day));
         book.setPublishDate(LocalDate.parse(publish_date));
 
         CompanentContaner.bookServes.add(book);
@@ -88,5 +88,10 @@ public class BookController {
         System.out.print("Enter query:");
         String query=CompanentContaner.scannerText.next();
         CompanentContaner.bookServes.search(query);
+    }
+    public void remove(){
+        System.out.print("Enter id:");
+        Integer removeId=CompanentContaner.scannerNumber.nextInt();
+        CompanentContaner.bookServes.remove(removeId);
     }
 }

@@ -118,8 +118,7 @@ public class CategoryRepository {
         try {
             String sql = "UPDATE category SET visible = false WHERE id = ?";
 
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, id);
 
