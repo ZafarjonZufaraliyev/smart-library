@@ -124,7 +124,6 @@ Enter Action:
 		id, name, surname, login, phone, status,  takenBookCount, BookOnHand
 
 
-
 *** Profile *** (only for admin)
 1. Profile list:
 		id, name, surname, login, phone, status, role, createdDate

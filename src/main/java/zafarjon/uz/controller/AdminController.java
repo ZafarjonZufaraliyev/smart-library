@@ -21,7 +21,7 @@ public class AdminController {
                     //
                     break;
                 case 4:
-                    //
+                    CompanentContaner.profileController.start();
                     break;
                 case 0:
                     loop=false;
